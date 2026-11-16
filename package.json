@@ -1,0 +1,12 @@
+{
+  "name": "practice-playwright",
+  "version": "1.0.0",
+  "type": "module",
+  "//": "module type is required for playwright to work with ES modules",
+  "//": "ES modules are officil system for JavaScript, They allow you to use import and export statements in your code.",
+  "scripts": {
+    "test": "playwright test",
+    "test:brave": "playwright test --headed --project=brave"
+  },
+  "devDependencies": {}
+}
