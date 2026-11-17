@@ -1,0 +1,18 @@
+{
+  "name": "practice-playwright",
+  "version": "1.0.0",
+  "type": "module",
+  "//": "devDependencies are packages that are only needed during development and testing, not in production.",
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --headed --project=chromium",
+    "test:brave": "playwright test --headed --project=brave",
+    "test:firefox": "playwright test --headed --project=firefox",
+    "test:edge": "playwright test --headed --project=\"Microsoft Edge\"",
+    "report": "playwright show-report",
+    "security:audit": "npm audit --audit-level=high"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}
