@@ -1,17 +1,24 @@
-// defineConfig: función envoltorio (helper), el trabajo de este archivo es exportar la configuración de Playwright, y defineConfig nos ayuda a tener autocompletado y validación de tipos.
+// defineConfig is a function provided by Playwright that allows you to define the configuration for your tests in a structured way. 
+// It helps in organizing test settings, such as test directories, browser configurations, and other options.
 
-// devices: Directorio de dispositivos predefinidos que Playwright proporciona para emular diferentes navegadores y dispositivos.
+// Devices are predefined configurations for different browsers and devices that Playwright can use to run tests.
 
-// trace: 'on-first-retry' significa que Playwright generará un archivo de seguimiento (trace) solo si la prueba falla en su primer intento. 
-// Esto es útil para depurar problemas sin generar archivos de seguimiento innecesarios para pruebas exitosas.
+// trace: 'on-first-retry' means that Playwright will generate a trace file only when a test fails on its first attempt. 
+// This is useful for debugging issues without generating unnecessary trace files for successful tests.
 
 
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+  reporter: 'html', 
   use: {
     trace: 'on-first-retry',
+    screenshot: 'on',
+    video: 'on',
+    launchOptions: {
+      slowMo: 1000, // Waits 1 second between every action automatically
+    },
   },
   projects: [
     {
@@ -32,6 +39,7 @@ export default defineConfig({
         ...devices['Desktop Chrome'],
         launchOptions: {
           executablePath: 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe',
+          slowMo: 1000,
         },
       },
     }

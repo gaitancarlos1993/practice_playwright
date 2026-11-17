@@ -2,11 +2,17 @@
   "name": "practice-playwright",
   "version": "1.0.0",
   "type": "module",
-  "//": "module type is required for playwright to work with ES modules",
-  "//": "ES modules are officil system for JavaScript, They allow you to use import and export statements in your code.",
+  "//": "devDependencies are packages that are only needed during development and testing, not in production.",
   "scripts": {
     "test": "playwright test",
-    "test:brave": "playwright test --headed --project=brave"
+    "test:chromium": "playwright test --headed --project=chromium",
+    "test:brave": "playwright test --headed --project=brave",
+    "test:firefox": "playwright test --headed --project=firefox",
+    "test:edge": "playwright test --headed --project=\"Microsoft Edge\"",
+    "report": "playwright show-report",
+    "security:audit": "npm audit --audit-level=high"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
 }
